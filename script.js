@@ -1,39 +1,61 @@
-document.getElementById("toilet-access-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Останавливаем стандартную отправку формы
+// Элементы для управления
+const loaderContainer = document.getElementById("loaderContainer");
+const loaderText = document.getElementById("loaderText");
+const loaderTitle = document.getElementById("loaderTitle");
+const finalMessage = document.getElementById("finalMessage");
+const finalText = document.getElementById("finalText");
 
-    // Показываем лоадер и скрываем форму
+// Сообщения для каждой кнопки
+const employeeMessages = [
+    "Сверяем базы данных...",
+    "Проверяем список сотрудников...",
+    "Сканируем для аутентификации...",
+    "Выявляем личность..."
+];
+const demandMessages = [
+    "Смотрим историю вашего браузера...",
+    "Сильно удивляемся...",
+    "Ну вы даете!",
+    "Это вообще легально?!"
+];
+
+// Обработка нажатия кнопки "Я сотрудник"
+document.getElementById("employeeButton").addEventListener("click", () => {
+    showLoader("Пожалуйста, ожидайте", employeeMessages, 6000, "Сотрудник не распознан, вход запрещен!");
+});
+
+// Обработка нажатия кнопки "Немедленно открой дверь!"
+document.getElementById("demandAccessButton").addEventListener("click", () => {
+    showLoader("Начато сканирование, пожалуйста, ожидайте...", demandMessages, 10000, "В доступе отказано! Теперь вы прокляты. Хорошего вам дня!");
+});
+
+// Обработка нажатия кнопки "А чё там внутри вообще?"
+document.getElementById("curiousButton").addEventListener("click", () => {
+    window.location.href = "https://example.com/your-image-link.jpg"; // Ссылка на картинку
+});
+
+// Функция для показа лоадера и сообщений
+function showLoader(title, messages, duration, finalMessageText) {
     document.querySelector(".container").style.display = "none";
-    document.getElementById("loaderContainer").style.display = "flex";
-
-    // Массив сообщений, которые будут отображаться во время "загрузки"
-    const messages = [
-        "Связываемся с сервером обработки данных...",
-        "Подключаем слитые базы имён...",
-        "Ищем ваш номер среди VIP-клиентов...",
-        "Делаем расклад Таро...",
-        "Проводим астрологическую оценку...",
-        "Настраиваем кристаллы...",
-        "Подключаем высшие силы для верификации..."
-    ];
+    loaderContainer.style.display = "flex";
+    loaderTitle.textContent = title;
 
     let messageIndex = 0;
-    const loaderText = document.getElementById("loaderText");
+    loaderText.textContent = messages[messageIndex];
 
-    // Функция для смены сообщений каждые 2 секунды
+    // Таймер для смены сообщений
     const messageInterval = setInterval(() => {
-        loaderText.textContent = messages[messageIndex];
         messageIndex++;
-
-        // Останавливаем показ сообщений, когда они заканчиваются
-        if (messageIndex >= messages.length) {
-            clearInterval(messageInterval);
-            showFinalMessage(); // Показываем финальное сообщение
+        if (messageIndex < messages.length) {
+            loaderText.textContent = messages[messageIndex];
         }
-    }, 2000);
+    }, duration / messages.length);
 
-    // Функция для отображения финального экрана с отказом
-    function showFinalMessage() {
-        document.getElementById("loaderContainer").style.display = "none";
-        document.getElementById("finalMessage").style.display = "block";
-    }
-});
+    // Таймер для финального экрана
+    setTimeout(() => {
+        clearInterval(messageInterval);
+        loaderContainer.style.display = "none";
+        finalMessage.style.display = "block";
+        finalText.textContent = finalMessageText;
+    }, duration);
+}
