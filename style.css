@@ -1,89 +1,70 @@
-/* Основные стили для центрирования и оформления */
-body {
+/* styles.css */
+
+body, html {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    color: #333;
 }
 
-/* Контейнер для начального выбора кнопок */
 .container {
     text-align: center;
-    display: block; /* По умолчанию контейнер виден */
+    padding: 20px;
+    background: #ffffffdd;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 90vw;
 }
 
-/* Стили для кнопок выбора */
-.option-button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 16px;
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#magic-button {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
-    background-color: #3498db;
+    background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
 }
 
-.option-button:hover {
-    background-color: #2980b9;
+#magic-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 86, 179, 0.6);
 }
 
-/* Контейнер для лоадера (по умолчанию скрыт) */
-#loaderContainer {
-    display: none; /* Скрыт по умолчанию */
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+.hidden {
+    display: none;
 }
 
-/* Стили заголовка и текста лоадера */
-#loaderTitle {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-#loaderText {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Анимация для лоадера (крутящийся круг) */
-.loader {
-    border: 5px solid #f3f3f3; /* Светлый серый */
-    border-top: 5px solid #3498db; /* Синий */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin-bottom: 20px;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Контейнер финального сообщения (по умолчанию скрыт) */
-#finalMessage {
-    display: none; /* Скрыт по умолчанию */
-    text-align: center;
-}
-
-/* Стиль для текста финального сообщения */
-#finalText {
-    font-size: 20px;
-    color: red;
+#message {
+    font-size: 1.2rem;
+    color: #ff4c4c;
+    margin-top: 20px;
     font-weight: bold;
-    margin-top: 20px;
 }
 
-/* Стили изображения в финальном сообщении */
-#finalText img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    #magic-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+    #message {
+        font-size: 1rem;
+    }
 }
