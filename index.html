@@ -3,32 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доступ к служебному туалету</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Туалет на горизонте</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Выберите подходящий вариант</h1>
-        
-        <!-- Кнопки выбора -->
-        <button class="option-button" id="employeeButton">Я сотрудник</button>
-        <button class="option-button" id="demandAccessButton">Немедленно открой дверь!</button>
-        <button class="option-button" id="curiousButton">А чё там внутри вообще?</button>
+        <h1>Система доступа к служебному туалету</h1>
+        <button id="magic-button">Нажмите, чтобы продолжить</button>
+        <div id="message" class="hidden">Вы даже по кнопке попасть не можете. В доступе отказано!</div>
     </div>
-
-    <!-- Лоадер -->
-    <div class="loader-container" id="loaderContainer">
-        <h2 id="loaderTitle"></h2>
-        <div class="loader"></div>
-        <p id="loaderText"></p>
-    </div>
-
-    <!-- Финальное сообщение -->
-    <div class="final-message" id="finalMessage">
-        <div class="cross">✖</div>
-        <p id="finalText"></p>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>
