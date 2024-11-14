@@ -1,68 +1,35 @@
-body, html {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    color: #333;
+/* Explanation in JS tab */
+
+/* Cool font from Google Fonts! */
+@import url('https://fonts.googleapis.com/css?family=Raleway:900&display=swap');
+
+body {
+	margin: 0px;
 }
 
-.container {
-    text-align: center;
-    padding: 20px;
-    background: #ffffffdd;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    max-width: 90vw;
+#container {
+	/* Center the text in the viewport. */
+	position: absolute;
+	margin: auto;
+	width: 100vw;
+	height: 80pt;
+	top: 0;
+	bottom: 0;
+	
+	/* This filter is a lot of the magic, try commenting it out to see how the morphing works! */
+	filter: url(#threshold) blur(0.6px);
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-#magic-button {
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
-}
-
-#magic-button:hover {
-    background-color: #0056b3;
-    box-shadow: 0 6px 12px rgba(0, 86, 179, 0.6);
-}
-
-.hidden {
-    display: none;
-}
-
-#message {
-    font-size: 1.2rem;
-    color: #ff4c4c;
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* Адаптивные стили для мобильных устройств */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-    #magic-button {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-    #message {
-        font-size: 1rem;
-    }
+/* Your average text styling */
+#text1, #text2 {
+	position: absolute;
+	width: 100%;
+	display: inline-block;
+	
+	font-family: 'Raleway', sans-serif;
+	font-size: 80pt;
+	
+	text-align: center;
+	
+	user-select: none;
 }
